@@ -1,0 +1,10 @@
+run
+-ifn counter.prj
+-top counter
+-ifmt MIXED
+-opt_mode AREA
+-opt_level 2
+-ofn counter.ngc
+-p xc3s500e-fg320-4
+-register_balancing yes
+
