@@ -1,0 +1,10 @@
+run
+-ifn sevenseg.prj
+-top stopwatch
+-ifmt MIXED
+-opt_mode AREA
+-opt_level 2
+-ofn sevenseg.ngc
+-p xc3s500e-fg320-4
+-register_balancing yes
+
