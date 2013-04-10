@@ -1,7 +1,7 @@
 SRC = stopwatch.v sevenseg.v
 
 CLEAN = sevenseg.bgn sevenseg.drc sevenseg.mrp sevenseg.ngd sevenseg.pcf \
-	sevenseg.bld sevenseg.lso sevenseg.ncd sevenseg.ngm sevenseg.srp \
+	sevenseg.bld sevenseg.lso stopwatch.lso sevenseg.ncd sevenseg.ngm sevenseg.srp \
 	sevenseg.bit sevenseg_signalbrowser.* sevenseg-routed_pad.tx \
 	sevenseg.map sevenseg_summary.xml timing.twr \
 	sevenseg-routed* sevenseg_usage* sevenseg.ngc param.opt netlist.lst \
