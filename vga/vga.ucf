@@ -1,7 +1,11 @@
 NET "clk"    LOC= "B8";
 
-# btn<0>
-NET "rst"    LOC= "B18";
+NET "sw<0>" LOC = "G18";
+NET "sw<1>" LOC = "H18";
+NET "sw<2>" LOC = "K18";
+NET "sw<3>" LOC = "K17";
+
+#NET "btn<0>"    LOC= "B18";
 
 NET "red<0>"   LOC = "R9";
 NET "red<1>"   LOC = "T8";
@@ -14,6 +18,3 @@ NET "blue<1>"  LOC = "U4";
 
 NET "hs"     LOC= "T4";
 NET "vs"     LOC= "U3";
-
-# led<0>
-NET "blank"  LOC = "J14";
