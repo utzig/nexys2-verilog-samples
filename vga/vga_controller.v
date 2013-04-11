@@ -6,7 +6,6 @@ module vga_controller
 	output       [10:0]  vcount,
 	output reg           hs,
 	output reg           vs,
-	output reg           blank,
 	output reg           vblank
 );
 
@@ -29,7 +28,6 @@ assign hcount = hcounter;
 assign vcount = vcounter;
 
 always @(posedge pixel_clk) begin
-	blank <= ~video_enable;
 	vblank <= blanking;
 end
 
