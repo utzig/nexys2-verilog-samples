@@ -1,6 +1,6 @@
 run
 -ifn uart.prj
--top uart
+-top test
 -ifmt MIXED
 -opt_mode AREA
 -opt_level 2

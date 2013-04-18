@@ -1,4 +1,4 @@
-SRC = uart.v
+SRC = test.v uart.v
 
 CLEAN = uart.bgn uart.drc uart.mrp uart.ngd uart.pcf \
 	uart.bld uart.lso stopwatch.lso uart.ncd uart.ngm uart.srp \
