@@ -12,7 +12,7 @@ module uart
 	output       [3:0]   leds
 );
 
-// TX state machine
+// States
 parameter IDLE=4'b0001, START=4'b0010, DATA=4'b0100, END=4'b1000;
 reg [3:0] tx_sm;
 reg [3:0] rx_sm;
@@ -24,9 +24,6 @@ parameter txdivisor = 8'd217;
 // 50Mhz / 115200 / 8
 // One bit is read at 2nd cycle of every 4th
 parameter rxdivisor = 8'd54;
-
-// Number of idle bits to transmit after stop bit
-parameter idle_bits = 3'd2;
 
 reg    [7:0]  txcounter;
 reg    [7:0]  txdata;
@@ -83,8 +80,7 @@ always @(posedge txclk) begin
 		if (txbit == 4'd8) begin
 			// Send stop bit
 			txbit <= 4'd0;
-			txd <= 1'b0;
-			idle_cycle <= 3'd0;
+			txd <= 1'b1;
 			tx_sm <= END;
 		end else begin
 			txd <= txdata[0];
@@ -92,14 +88,9 @@ always @(posedge txclk) begin
 			txbit <= txbit + 4'd1;
 		end
 	end else if (tx_sm == END) begin
-		txd <= 1'b1;
-		if (idle_cycle == 3'd2) begin
-			tbe <= 1'b1;
-			if (wr == 1'b0) begin
-				tx_sm <= IDLE;
-			end
-		end else
-			idle_cycle <= idle_cycle + 1;
+		tbe <= 1'b1;
+		if (wr == 1'b0)
+			tx_sm <= IDLE;
 	end
 end
 
